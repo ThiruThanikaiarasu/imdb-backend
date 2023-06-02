@@ -5,6 +5,8 @@ const app = express()
 const PORT = 3500
 const moviesList = require('./routers/moviesList')
 
+app.use(express.json())
+
 mongoose.connect(process.env.DB_URL)
 const db = mongoose.connection
 db.on("error",(errorMessage)=> console.log(errorMessage))
